@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "c4d29e89-a5d0-466f-a9d2-707b5ebb89bb",
+		"name": "Biblioteca",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21159052"
+	},
+	"item": [
+		{
+			"name": "Alunos",
+			"item": [
+				{
+					"name": "Criar aluno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ra\": \"012345678\",\r\n    \"nome__aluno\": \"jaquinha\",\r\n    \"turma\": \"1_C\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/aluno/criar",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"aluno",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update aluno",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ra\": \"9876543210\",\r\n    \"nome__aluno\": \"Ele quer que fala o que\",\r\n    \"turma\": \"O que\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/aluno/patch",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"aluno",
+								"patch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete aluno",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/aluno/delete/9876543210",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"aluno",
+								"delete",
+								"9876543210"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByIdAluno",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll alunos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Livros",
+			"item": [
+				{
+					"name": "Criar Livros",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ra\": \"012345678\",\r\n    \"nome__aluno\": \"jaquinha\",\r\n    \"turma\": \"1_C\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/aluno/criar",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"aluno",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update livros",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ra\": \"9876543210\",\r\n    \"nome__aluno\": \"Ele quer que fala o que\",\r\n    \"turma\": \"O que\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/aluno/patch",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"aluno",
+								"patch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete livros",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/aluno/delete/9876543210",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"aluno",
+								"delete",
+								"9876543210"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById livros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/livros/findbyid/1038473",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"livros",
+								"findbyid",
+								"1038473"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll livros",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
