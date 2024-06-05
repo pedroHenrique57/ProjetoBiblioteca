@@ -211,6 +211,71 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Emprestimos",
+			"item": [
+				{
+					"name": "Criar emprestimo",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar emprestimo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"livros__id__livros\" : 10,\r\n    \"aluno__RA\" : \"9876542210\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/emprestimo/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"emprestimo",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Emprestimo By Book",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Find Emprestimo By Aluno",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Find all emprestimos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

@@ -9,6 +9,6 @@ import lombok.*;
 @ToString
 
 public class emprestimoEntidadeRepositorio {
-  alunoEntidadeRepositorio alunoRDN;
-  livrosEntidadeRepositorio livrosRDN;
+  String aluno__RA;
+  int Livros__id__Livros;
 }
