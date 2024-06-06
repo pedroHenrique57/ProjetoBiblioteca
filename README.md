@@ -17,9 +17,12 @@ endpoints para interação com a aplicação.
 
 # Consumo da Aplicação
 
+> [!TIP]
+> No diretório `./Postman Export` existe um arquivo .json configurado com todos os endpoint.
+
 A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos endpoints disponíveis:
 
-# Endpoints para livros.
+## Endpoints para livros.
 
 - `POST` `/livros/criar`: registra um livro no banco de dados. Necessário fornecer um body com a entidade livroRDN (
   Disponibilizado abaixo ).
@@ -90,7 +93,10 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 ]
 ```
 
-# Endpoints para alunos.
+## Endpoints para alunos.
+
+> [!WARNING]
+> O RA do aluno tem que ter obrigatóriamente 10 caracteres.
 
 - `POST` `/aluno/criar`: Registra um aluno no banco de dados. Necessário fornecer um body com a entidade alunoRDN (
   Disponibilizado abaixo ).
@@ -161,7 +167,7 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 ]
 ```
 
-# Endpoints de emprestimos.
+## Endpoints de emprestimos.
 
 - `POST` `/emprestimo/criar`: registra um emprestimo de livro para um aluno no banco de dados. Necessário fornecer um
   body com a entidade emprestimoRDN ( Disponibilizado abaixo ).
@@ -256,6 +262,9 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 # Banco de Dados
 
+> [!TIP]
+> No diretório `./mySQL` Contem arquivos úteis, como o arquivo sql para criação do banco, o schema para futura edição e uma imagem do banco para melhor interpretação.
+
 Foi utilizado o MySQL como banco de dados devido ao seu desempenho, escalabilidade e ampla adoção no mercado,
 facilitando futuras implementações colaborativas.
 
@@ -279,8 +288,11 @@ Configure as propriedades do banco de dados no arquivo `application.properties`.
 
 ## Compilar e Executar o Projeto
 
-Navegue até o diretório do projeto (./biblioteca) e verifique se existe um arquivo nomeado `Pom.xml`, caso afirmativo
-abra um terminal nesse diretório e execute o seguinte comando:
+> [!WARNING]
+> Dentro de um terminal, verifique se você está no diretório do projeto `./biblioteca` para rodar o comando.  
+> caso esteja com dúvida verifique se existe um arquivo nomeado `Pom.xml` no diretório.
+
+Navegue até o diretório do projeto e abra um terminal. Neste terminal execute o seguinte comando:
 
 ```sh
 mvn spring-boot:run
@@ -292,4 +304,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull re
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT. Acesse o arquivo LICENSE para mais informações.
+Este projeto está licenciado sob a licença MIT. Acesse o arquivo `LICENSE` para mais informações.
