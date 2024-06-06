@@ -52,19 +52,19 @@ public class livrosController {
   }
 
   @GetMapping("/livros/findbyid/{id}")
-  public ResponseEntity<String> findByIdlivros(@PathVariable("id") int id) {
+  public ResponseEntity<?> findByIdlivros(@PathVariable("id") int id) {
     livrosEntidadeRepositorio livros;
     try {
       livros = livrosInteractor.findById(id);
     } catch (Exception e) {
-      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + id);
+      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage());
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o Objeto encontrado id achado: " + livros);
+    return ResponseEntity.ok().body(livros);
   }
 
   @GetMapping("/livros/findall")
-  public ResponseEntity<String> findall() {
+  public ResponseEntity<?> findall() {
     List<livrosEntidadeRepositorio> livros;
     try {
       livros = livrosInteractor.findAll();
@@ -72,6 +72,6 @@ public class livrosController {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage());
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui a lista de Objeto encontrado achado: " + livros);
+    return ResponseEntity.ok().body(livros);
   }
 }

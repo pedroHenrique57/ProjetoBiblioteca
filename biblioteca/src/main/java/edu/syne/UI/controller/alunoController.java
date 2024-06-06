@@ -62,7 +62,7 @@ public class alunoController {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + id);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o Objeto encontrado id achado: " + aluno);
+    return ResponseEntity.ok().body(aluno.toString());
   }
 
   @GetMapping("/aluno/findall")
@@ -71,9 +71,9 @@ public class alunoController {
     try {
       aluno = alunoInteractor.findAll();
     } catch (Exception e) {
-      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage());
+      return ResponseEntity.badRequest().body(e.getMessage());
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui a lista de Objeto encontrado achado: " + aluno);
+    return ResponseEntity.ok().body(aluno.toString());
   }
 }

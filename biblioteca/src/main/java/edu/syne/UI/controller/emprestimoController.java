@@ -42,7 +42,7 @@ public class emprestimoController {
   }
 
   @GetMapping("/emprestimo/findEmprestimobyBook/{id}")
-  public ResponseEntity<String> findEmprestimoByBook(@PathVariable("id") int id) {
+  public ResponseEntity<?> findEmprestimoByBook(@PathVariable("id") int id) {
     List<emprestimoEntidadeRepositorio> emprestimo;
     try {
       emprestimo = emprestimoInteractor.findLivroById(id);
@@ -50,7 +50,7 @@ public class emprestimoController {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + id);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o Objeto encontrado id achado: " + emprestimo);
+    return ResponseEntity.ok().body(emprestimo);
   }
 
   @GetMapping("/emprestimo/findEmprestimobyAluno/{ra}")
