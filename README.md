@@ -2,7 +2,7 @@
 
 Este projeto é o MVP para uma aplicação simples desenvolvida em Java utilizando o estilo arquitetural RESTful e clean
 architecture
-para a gestão de uma biblioteca. Ele permite a criação, atualização, remoção e empréstimo de livros, fornecendo
+para a gestão de uma biblioteca escolar. Ele permite a criação, atualização, remoção e empréstimo de livros, fornecendo
 endpoints para interação com a aplicação.
 
 ## Tecnologias Utilizadas
@@ -21,9 +21,8 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 # Endpoints para livros.
 
-- **POST /livros/criar**: registra um livro no banco de dados. Necessário fornecer um body com a entidade livroRDN (
-  Disponibilizado
-  abaixo).
+- `POST` `/livros/criar`: registra um livro no banco de dados. Necessário fornecer um body com a entidade livroRDN (
+  Disponibilizado abaixo ).
 
 ``` Json
 {
@@ -35,8 +34,8 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 ***
 
-- **PATCH /livros/patch**: atualiza as informações de um livro no banco de dados. Necessário fornecer um body de
-  livroEntidadeRepositorio(Disponibilizado abaixo).
+- `PATCH` `/livros/patch`: atualiza as informações de um livro no banco de dados. Necessário fornecer um body de
+  livroEntidadeRepositorio ( Disponibilizado abaixo ).
 
 ``` Json
 { 
@@ -48,14 +47,14 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 *** 
 
-- **DELETE /livros/delete/{id__Livros}**: Remove um livro do acervo da biblioteca. Necessário fornecer uma variável de
-  rota com o ID do livro(Exemplo abaixo).  
+- `DELETE` `/livros/delete/{id__Livros}`: Remove um livro do banco de dados. Necessário fornecer uma variável de
+  rota com o ID do livro ( Exemplo abaixo ).  
   `Apagar livro com id 109125 = /livros/delete/109125`
 
 *** 
 
-- **GET /livros/findbyid/{id__Livros}**: Retorna um body com as informações de um livro existente com o ID fornecido (
-  Exemplo abaixo).  
+- `GET` `/livros/findbyid/{id__Livros}`: Retorna um body com as informações de um livro existente com o ID fornecido (
+  Exemplo abaixo ).  
   `Procurar livro com id 109125 = /livros/findbyid/109125`  
   `Body de retorno:`
 
@@ -69,8 +68,8 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 ***
 
-- **GET /livros/findall**: Retorna um body com uma lista das informações de todos os livros existente no banco de dados.
-
+- `GET` `/livros/findall`: Retorna um body com uma lista das informações de todos os livros existente no banco de dados.  
+  `Body de retorno:`
 ``` Json
 [
     {
@@ -93,8 +92,8 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 # Endpoints para alunos.
 
-- **POST /aluno/criar**: Registra um aluno no banco de dados. Necessário fornecer um body com a entidade alunoRDN (
-  Disponibilizado abaixo).
+- `POST` `/aluno/criar`: Registra um aluno no banco de dados. Necessário fornecer um body com a entidade alunoRDN (
+  Disponibilizado abaixo ).
 
 ``` Json
 {
@@ -106,8 +105,8 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 ***
 
-- **PATCH /aluno/patch**: Atualiza um aluno a partir do RA informado. É necessário enviar um body de
-  alunoEntidadeRepositorio(exemplo abaixo).
+- `PATCH` `/aluno/patch`: Atualiza um aluno a partir do RA informado. É necessário enviar um body de
+  alunoEntidadeRepositorio ( Disponibilizado abaixo ).
 
 ``` Json
 {
@@ -119,14 +118,14 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 ***
 
-- **DELETE /aluno/delete/{RA}**: Remove um aluno do banco de dados. Necessário fornecer uma variável de
-  rota com o RA do aluno(Exemplo abaixo).  
+- `DELETE` `/aluno/delete/{RA}`: Remove um aluno do banco de dados. Necessário fornecer uma variável de
+  rota com o RA do aluno ( Exemplo abaixo ).  
   `Apagar aluno com id 123A456B78 = /aluno/delete/123A456B78`
 
 ***
 
-- **GET /aluno/findbyid/{RA}**: Retorna um body com as informações de um aluno existente com o RA fornecido (
-  Exemplo abaixo).  
+- `GET` `/aluno/findbyid/{RA}`: Retorna um body com as informações de um aluno existente com o RA fornecido (
+  Exemplo abaixo ).  
   `Procurar aluno com id 123A456B78 = /aluno/delete/123A456B78`  
   `Body de retorno:`
 
@@ -140,8 +139,8 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 ***
 
-- **GET /alunos/findall**: Retorna um body com uma lista das informações de todos os alunos existente no banco de dados.
-
+- `GET` `/alunos/findall`: Retorna um body com uma lista das informações de todos os alunos existente no banco de dados.  
+  `Body de retorno:`
 ``` Json
 [
     {
@@ -162,12 +161,10 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 ]
 ```
 
+# Endpoints de emprestimos.
 
-
-# Endpoints de emprestimos de livros.
-
-- **POST /emprestimo/criar**: registra um emprestimo de livro para um aluno no banco de dados. Necessário fornecer um
-  body com a entidade emprestimoRDN ( Disponibilizado abaixo).
+- `POST` `/emprestimo/criar`: registra um emprestimo de livro para um aluno no banco de dados. Necessário fornecer um
+  body com a entidade emprestimoRDN ( Disponibilizado abaixo ).
 
 ``` Json
 {
@@ -178,7 +175,9 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 ***
 
-- **DELETE /emprestimo/delete**: Remove um emprestimo do banco de dados. Necessário fornecer um body com a entidade emprestimoRDN (Exemplo abaixo).  
+- `DELETE` `/emprestimo/delete`: Remove um emprestimo do banco de dados. Necessário fornecer um body com a entidade
+  emprestimoRDN ( Exemplo abaixo ).
+
 ``` Json
 {
     "livros__id__livros" : 10,
@@ -188,10 +187,12 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 ***
 
-- **GET /emprestimo/findemprestimobybook/{id__Livro}**: Retorna um body com uma lista contendo todos os emprestimos com o ID do livro(
-  Exemplo abaixo).  
+- `GET` `/emprestimo/findemprestimobybook/{id__Livro}`: Retorna um body com uma lista contendo todos os emprestimos com
+  o ID do livro (
+  Exemplo abaixo ).  
   `Procurar aluno com id 123A456B78 = /aluno/delete/11`  
   `Body de retorno:`
+
 ``` Json
 [
     {
@@ -206,10 +207,12 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 ***
 
-- **GET /emprestimo/findemprestimobyaluno/{RA}**: Retorna um body com uma lista contendo todos os emprestimos com o RA do Aluno (
-  Exemplo abaixo).  
+- `GET` `/emprestimo/findemprestimobyaluno/{RA}`: Retorna um body com uma lista contendo todos os emprestimos com o RA
+  do Aluno (
+  Exemplo abaixo ).  
   `Procurar aluno com id 123A456B78 = /aluno/delete/0123456789`  
   `Body de retorno:`
+
 ``` Json
 [
     {
@@ -225,10 +228,11 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 ***
 
-- **GET /emprestimo/findall**: Retorna um body com uma lista contendo todos os emprestimos no banco de dados(
-  Exemplo abaixo).  
+- `GET` `/emprestimo/findall`: Retorna um body com uma lista contendo todos os emprestimos no banco de dados (
+  Exemplo abaixo ).  
   `Procurar aluno com id 123A456B78 = /aluno/delete/123A456B78`  
   `Body de retorno:`
+
 ``` Json
 [
     {
@@ -252,8 +256,8 @@ A aplicação é acessada através de endpoints HTTP. Abaixo está o mapa dos en
 
 # Banco de Dados
 
-Foi utilizado o MySQL como banco de dados devido ao seu desempenho, escalabilidade e ampla adoção no mercado, facilitando futuras implementações colaborativas.
-
+Foi utilizado o MySQL como banco de dados devido ao seu desempenho, escalabilidade e ampla adoção no mercado,
+facilitando futuras implementações colaborativas.
 
 # Como Executar
 
@@ -275,7 +279,8 @@ Configure as propriedades do banco de dados no arquivo `application.properties`.
 
 ## Compilar e Executar o Projeto
 
-Navegue até o diretório do projeto (./biblioteca) e verifique se existe um arquivo nomeado `Pom.xml`, caso afirmativo abra um terminal nesse diretório e execute o seguinte comando:
+Navegue até o diretório do projeto (./biblioteca) e verifique se existe um arquivo nomeado `Pom.xml`, caso afirmativo
+abra um terminal nesse diretório e execute o seguinte comando:
 
 ```sh
 mvn spring-boot:run
@@ -287,4 +292,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull re
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT.
+Este projeto está licenciado sob a licença MIT. Acesse o arquivo LICENSE para mais informações.
