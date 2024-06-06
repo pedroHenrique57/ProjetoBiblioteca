@@ -25,17 +25,17 @@ public class emprestimoInteractor implements emprestimoInteractorInterface {
   }
 
   @Override
-  public void delete(String aluno__RA, int Livros__id__Livros) throws IllegalArgumentException, DataAccessException {
-    emprestimoGateway.delete(aluno__RA, Livros__id__Livros);
+  public void delete(String aluno__RA, int id__Livros) throws IllegalArgumentException, DataAccessException {
+    emprestimoGateway.delete(aluno__RA, id__Livros);
   }
 
   @Override
-  public List<emprestimoEntidadeRepositorio> findLivroById(int id) throws IllegalArgumentException, DataAccessException {
+  public List<emprestimoEntidadeRepositorio> findEmprestimoByLivro(int id) throws IllegalArgumentException, DataAccessException {
     return emprestimoGateway.findEmprestimoByLivro(id);
   }
 
   @Override
-  public List<emprestimoEntidadeRepositorio> findAlunoById(String id) throws IllegalArgumentException, DataAccessException {
+  public List<emprestimoEntidadeRepositorio> findEmprestimoByAluno(String id) throws IllegalArgumentException, DataAccessException {
     return emprestimoGateway.findEmprestimoByAluno(id);
   }
 

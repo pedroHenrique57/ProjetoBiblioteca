@@ -24,7 +24,7 @@ public class livrosGateway implements livrosGatewayInterface{
   @Override
   public void create(livrosRDN livrosParaCriar) throws IllegalArgumentException, DataAccessException {
     // Define o SQL.
-    String sql = "INSERT INTO livros VALUES (?,?,?)";
+    String sql = "INSERT INTO livro VALUES (?,?,?)";
 
     // Formata o SQL com as informações e roda no banco.
     jdbcTemplate.update(sql, livrosParaCriar.getId__Livros(), livrosParaCriar.getNome__Livro(), livrosParaCriar.getDescricao());
@@ -33,7 +33,7 @@ public class livrosGateway implements livrosGatewayInterface{
   @Override
   public void update(livrosEntidadeRepositorio livrosParaSalvar) throws IllegalArgumentException, DataAccessException {
     // Define o SQL.
-    String sql = "UPDATE livros SET nome__livro = ? , descricao = ? WHERE id__Livros = ?";
+    String sql = "UPDATE livro SET nome__livro = ? , descricao = ? WHERE id__Livro = ?";
 
     // Formata o SQL com as informações e roda no banco.
     jdbcTemplate.update(sql, livrosParaSalvar.getNome__Livro(), livrosParaSalvar.getDescricao(), livrosParaSalvar.getId__Livros() );
@@ -42,7 +42,7 @@ public class livrosGateway implements livrosGatewayInterface{
   @Override
   public void delete(int id) throws IllegalArgumentException, DataAccessException {
     // Define o SQL.
-    String sql = "DELETE FROM livros WHERE id__Livros = ?";
+    String sql = "DELETE FROM livro WHERE id__Livro = ?";
 
     // Formata o SQL com as informações e roda no banco.
     jdbcTemplate.update(sql, id);
@@ -51,7 +51,7 @@ public class livrosGateway implements livrosGatewayInterface{
   @Override
   public livrosEntidadeRepositorio findById(int id) throws IllegalArgumentException, DataAccessException {
     // Define o SQL.
-    String sql = "SELECT * FROM livros WHERE id__Livros = ?";
+    String sql = "SELECT * FROM livro WHERE id__Livro = ?";
 
     // Formata o SQL com as informações e roda no banco.
     return jdbcTemplate.queryForObject(sql, new Object[]{id}, new livrosEntidadeRepositorioRowMapper());
@@ -60,7 +60,7 @@ public class livrosGateway implements livrosGatewayInterface{
   @Override
   public List<livrosEntidadeRepositorio> findAll() throws DataAccessException {
     // Define o SQL.
-    String sql = "SELECT * FROM livros";
+    String sql = "SELECT * FROM livro";
 
     // Formata o SQL com as informações e roda no banco.
     return jdbcTemplate.query(sql, new livrosEntidadeRepositorioRowMapper());

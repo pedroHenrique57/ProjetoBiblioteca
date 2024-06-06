@@ -11,7 +11,7 @@ public class emprestimoEntidadeRepositorioRowMapper implements RowMapper<emprest
   public emprestimoEntidadeRepositorio mapRow(ResultSet rs, int rowNum) throws SQLException {
     emprestimoEntidadeRepositorio emprestimo = new emprestimoEntidadeRepositorio();
     emprestimo.setAluno__RA(rs.getString("aluno__RA"));
-    emprestimo.setLivros__id__Livros(rs.getInt("Livros__id__Livros"));
+    emprestimo.setId__Livro(rs.getInt("id__Livros"));
     return emprestimo;
   }
 }

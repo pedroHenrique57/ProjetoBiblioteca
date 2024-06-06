@@ -25,10 +25,10 @@ public class alunoController {
     try {
       alunoInteractor.create(alunoParaCriar);
     } catch (Exception e) {
-      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + alunoParaCriar);
+      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debug: " + alunoParaCriar);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o objeto criado: " + alunoParaCriar);
+    return ResponseEntity.ok().build();
   }
 
   @PatchMapping("/aluno/patch")
@@ -36,10 +36,10 @@ public class alunoController {
     try {
       alunoInteractor.update(alunoParaAtualizar);
     } catch (Exception e) {
-      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + alunoParaAtualizar);
+      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debug: " + alunoParaAtualizar);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o objeto atualizado: " + alunoParaAtualizar);
+    return ResponseEntity.ok().build();
   }
 
   @DeleteMapping("/aluno/delete/{id}")
@@ -47,14 +47,14 @@ public class alunoController {
     try {
       alunoInteractor.delete(id);
     } catch (Exception e) {
-      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + id);
+      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debug: " + id);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o id deletado: " + id);
+    return ResponseEntity.ok().build();
   }
 
   @GetMapping("/aluno/findbyid/{id}")
-  public ResponseEntity<String> findByIdAluno(@PathVariable("id") String id) {
+  public ResponseEntity<?> findByIdAluno(@PathVariable("id") String id) {
     alunoEntidadeRepositorio aluno;
     try {
       aluno = alunoInteractor.findById(id);
@@ -62,18 +62,18 @@ public class alunoController {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + id);
     }
 
-    return ResponseEntity.ok().body(aluno.toString());
+    return ResponseEntity.ok().body(aluno);
   }
 
   @GetMapping("/aluno/findall")
-  public ResponseEntity<String> findall() {
+  public ResponseEntity<?> findall() {
     List<alunoEntidadeRepositorio> aluno;
     try {
       aluno = alunoInteractor.findAll();
     } catch (Exception e) {
-      return ResponseEntity.badRequest().body(e.getMessage());
+      return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage());
     }
 
-    return ResponseEntity.ok().body(aluno.toString());
+    return ResponseEntity.ok().body(aluno);
   }
 }

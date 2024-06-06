@@ -26,22 +26,22 @@ public class emprestimoGateway implements emprestimoGatewayInteractor{
     String sql = "INSERT INTO emprestimo VALUES (?,?)";
 
     // Formata o SQL com as informações e roda no banco.
-    jdbcTemplate.update(sql, emprestimoParaCriar.getLivros__id__livros(), emprestimoParaCriar.getAluno__RA());
+    jdbcTemplate.update(sql, emprestimoParaCriar.getId__Livros(), emprestimoParaCriar.getAluno__RA());
   }
 
   @Override
-  public void delete(String aluno__RA, int Livros__id__Livros) throws IllegalArgumentException, DataAccessException {
+  public void delete(String aluno__RA, int id__Livros) throws IllegalArgumentException, DataAccessException {
     // Define o SQL.
-    String sql = "DELETE FROM emprestimo WHERE Livros__id__Livros = ? AND Aluno__RA = ?";
+    String sql = "DELETE FROM emprestimo WHERE id__Livros = ? AND Aluno__RA = ?";
 
     // Formata o SQL com as informações e roda no banco.
-    jdbcTemplate.update(sql, Livros__id__Livros, aluno__RA);
+    jdbcTemplate.update(sql, id__Livros, aluno__RA);
   }
 
   @Override
   public List<emprestimoEntidadeRepositorio> findEmprestimoByLivro(int id) throws IllegalArgumentException, DataAccessException {
     // Define o SQL.
-    String sql = "SELECT * FROM emprestimo WHERE Livros__id__Livros = ?";
+    String sql = "SELECT * FROM emprestimo WHERE id__Livros = ?";
 
     // Formata o SQL com as informações e roda no banco.
     return jdbcTemplate.query(sql, new Object[]{id}, new emprestimoEntidadeRepositorioRowMapper());

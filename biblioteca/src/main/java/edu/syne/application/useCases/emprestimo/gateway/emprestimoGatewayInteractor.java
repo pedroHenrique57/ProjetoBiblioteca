@@ -9,7 +9,7 @@ import java.util.List;
 public interface emprestimoGatewayInteractor {
   void create(emprestimoRDN emprestimoParaCriar) throws IllegalArgumentException, DataAccessException;
 
-  void delete(String aluno__RA, int Livros__id__Livros) throws IllegalArgumentException, DataAccessException;
+  void delete(String aluno__RA, int id__Livros) throws IllegalArgumentException, DataAccessException;
 
   List<emprestimoEntidadeRepositorio> findEmprestimoByLivro(int id) throws IllegalArgumentException, DataAccessException;
 

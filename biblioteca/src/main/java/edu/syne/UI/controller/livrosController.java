@@ -26,7 +26,7 @@ public class livrosController {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + livrosParaCriar);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o objeto criado: " + livrosParaCriar);
+    return ResponseEntity.ok().build();
   }
 
   @PatchMapping("/livros/patch")
@@ -37,7 +37,7 @@ public class livrosController {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + livrosParaAtualizar);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o objeto atualizado: " + livrosParaAtualizar);
+    return ResponseEntity.ok().build();
   }
 
   @DeleteMapping("/livros/delete/{id}")
@@ -48,7 +48,7 @@ public class livrosController {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + id);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o id deletado: " + id);
+    return ResponseEntity.ok().build();
   }
 
   @GetMapping("/livros/findbyid/{id}")

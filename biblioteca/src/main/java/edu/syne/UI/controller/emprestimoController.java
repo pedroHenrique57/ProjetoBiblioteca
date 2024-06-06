@@ -20,32 +20,33 @@ public class emprestimoController {
   }
 
   @PostMapping("/emprestimo/criar")
-  public ResponseEntity<String> criarAluno(@RequestBody emprestimoRDN emprestimoParaCriar) {
+  public ResponseEntity<String> criarEmprestimo(@RequestBody emprestimoRDN emprestimoParaCriar) {
     try {
       emprestimoInteractor.create(emprestimoParaCriar);
     } catch (Exception e) {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + emprestimoParaCriar);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o objeto criado: " + emprestimoParaCriar);
+    return ResponseEntity.ok().build();
   }
 
   @DeleteMapping("/emprestimo/delete")
-  public ResponseEntity<String> deletarAluno(@RequestBody emprestimoRDN emprestimoParaDeletar) {
+  public ResponseEntity<String> deletarEmprestimo(@RequestBody emprestimoEntidadeRepositorio emprestimoParaDeletar) {
+    System.out.println(emprestimoParaDeletar);
     try {
-      emprestimoInteractor.delete(emprestimoParaDeletar.getAluno__RA(), emprestimoParaDeletar.getLivros__id__livros());
+      emprestimoInteractor.delete(emprestimoParaDeletar.getAluno__RA(), emprestimoParaDeletar.getId__Livro());
     } catch (Exception e) {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + emprestimoParaDeletar);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui os  id deletado: " + emprestimoParaDeletar);
+    return ResponseEntity.ok().build();
   }
 
   @GetMapping("/emprestimo/findEmprestimobyBook/{id}")
   public ResponseEntity<?> findEmprestimoByBook(@PathVariable("id") int id) {
     List<emprestimoEntidadeRepositorio> emprestimo;
     try {
-      emprestimo = emprestimoInteractor.findLivroById(id);
+      emprestimo = emprestimoInteractor.findEmprestimoByLivro(id);
     } catch (Exception e) {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + id);
     }
@@ -54,19 +55,19 @@ public class emprestimoController {
   }
 
   @GetMapping("/emprestimo/findEmprestimobyAluno/{ra}")
-  public ResponseEntity<String> findEmprestimoByAluno(@PathVariable("ra") String ra) {
+  public ResponseEntity<?> findEmprestimoByAluno(@PathVariable("ra") String ra) {
     List<emprestimoEntidadeRepositorio> emprestimo;
     try {
-      emprestimo = emprestimoInteractor.findAlunoById(ra);
+      emprestimo = emprestimoInteractor.findEmprestimoByAluno(ra);
     } catch (Exception e) {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage() + "\nAqui está o Objeto que você enviou para debbug: " + ra);
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui o Objeto encontrado id achado: " + emprestimo);
+    return ResponseEntity.ok().body(emprestimo);
   }
 
   @GetMapping("/emprestimo/findall")
-  public ResponseEntity<String> findall() {
+  public ResponseEntity<?> findall() {
     List<emprestimoEntidadeRepositorio> emprestimo;
     try {
       emprestimo = emprestimoInteractor.findAll();
@@ -74,6 +75,6 @@ public class emprestimoController {
       return ResponseEntity.badRequest().body("Deu ruim, aqui o erro informado: " + e.getMessage());
     }
 
-    return ResponseEntity.ok().body("Deu bom, aqui a lista de Objeto encontrado achado: " + emprestimo);
+    return ResponseEntity.ok().body(emprestimo);
   }
 }

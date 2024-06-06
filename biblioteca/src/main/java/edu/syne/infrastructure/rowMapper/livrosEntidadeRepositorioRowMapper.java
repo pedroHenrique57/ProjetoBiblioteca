@@ -10,7 +10,7 @@ public class livrosEntidadeRepositorioRowMapper implements RowMapper<livrosEntid
   @Override
   public livrosEntidadeRepositorio mapRow(ResultSet rs, int rowNum) throws SQLException {
     livrosEntidadeRepositorio livros = new livrosEntidadeRepositorio();
-    livros.setId__Livros(rs.getInt("id__Livros"));
+    livros.setId__Livros(rs.getInt("id__Livro"));
     livros.setNome__Livro(rs.getString("nome__Livro"));
     livros.setDescricao(rs.getString("descricao"));
 
